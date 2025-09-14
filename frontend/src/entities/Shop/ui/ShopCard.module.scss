@@ -1,12 +1,5 @@
-$primary-color: #5a6c7d;
-$secondary-color: #384967;
-$text-color: #666;
-$shadow-light: rgba(0,0,0,0.1);
-$shadow-hover: rgba(0,0,0,0.15);
-
-@mixin gradient-btn($from, $to){
-  background: linear-gradient(135deg, $from 0%, $to 100%);
-}
+@import '../../../shared/styles/variables';
+@import '../../../shared/styles/mixins';
 
 .shopCard {
   background: white;
@@ -70,7 +63,7 @@ $shadow-hover: rgba(0,0,0,0.15);
     padding: 20px;
     align-items: center;
     gap: 10px;
-    color: #999;
+    color: $subtitle-color;
     font-size: 18px;
     font-weight: 500;
   }
