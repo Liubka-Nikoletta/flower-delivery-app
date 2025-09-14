@@ -4,14 +4,22 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+/.pnp
+.pnp.js
+
 dist/
 build/
 
 .env
 .env.local
 .env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 .DS_Store
 Thumbs.db
 .idea/
 *.swp
+
+/coverage

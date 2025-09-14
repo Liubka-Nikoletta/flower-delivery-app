@@ -1,0 +1,95 @@
+.shopCard {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.shopCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.shopImage {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.shopImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(90, 108, 125, 0.1) 0%, rgba(90, 108, 125, 0.05) 100%);
+}
+
+.shopCardContent {
+  padding: 30px;
+}
+.shopCardContent .shopName {
+  font-size: 24px;
+  font-weight: 300;
+  color: #5a6c7d;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.shopCardContent .shopDescription {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.shopCardContent .shopInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+.shopCardContent .shopRating {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  gap: 10px;
+  color: #999;
+  font-size: 18px;
+  font-weight: 500;
+}
+.shopCardContent .selectShopBtn {
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #5a6c7d 0%, #384967 100%);
+}
+.shopCardContent .selectShopBtn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #5a6c7d 0%, #384967 100%);
+}
+@media (max-width: 768px) {
+  .shopCardContent {
+    padding: 20px;
+  }
+  .shopCardContent .shopName {
+    font-size: 18px;
+  }
+  .shopCardContent .shopDescription {
+    font-size: 13px;
+  }
+  .shopCardContent .selectShopBtn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/*# sourceMappingURL=ShopCard.module.css.map */

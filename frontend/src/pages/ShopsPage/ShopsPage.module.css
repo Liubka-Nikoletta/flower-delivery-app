@@ -1,0 +1,21 @@
+.container {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 300;
+  color: #5a6c7d;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.shopsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/*# sourceMappingURL=ShopsPage.module.css.map */
