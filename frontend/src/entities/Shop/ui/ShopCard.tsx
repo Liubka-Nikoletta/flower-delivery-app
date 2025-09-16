@@ -1,5 +1,6 @@
 import React from "react";
 import {Shop} from "../model/types";
+import {Link} from "react-router-dom";
 import styles from "./ShopCard.module.scss";
 
 interface ShopCardProps {
@@ -17,7 +18,9 @@ const ShopCard = ({ shop, onSelect }: ShopCardProps) => {
                 <p className={styles.shopDescription}>{description}</p>
                 <div className={styles.shopInfo}>
                     <div className={styles.shopRating}>Rating: {rating}</div>
-                    <button className={styles.selectShopBtn} onClick={() => onSelect(id)}>Обрати</button>
+                    <Link to={`/shops/${id}/flowers`}>
+                        <button className={styles.selectShopBtn} onClick={() => onSelect(id)}>Обрати</button>
+                    </Link>
                 </div>
             </div>
         </div>
