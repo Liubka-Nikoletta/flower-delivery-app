@@ -15,7 +15,7 @@ const FlowerCard = ({ flower, onSelect }: FlowerCardProps) => {
             <div className={styles.flowerCardContent}>
                 <h3 className={styles.flowerName}>{name}</h3>
                 <div className={styles.flowerInfo}>
-                    <div className={styles.flowerPrice}>Price: {price}</div>
+                    <div className={styles.flowerPrice}>Ціна: {price}</div>
                     <button className={styles.selectFlowerBtn} onClick={() => onSelect(id)}>Обрати</button>
                 </div>
             </div>

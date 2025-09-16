@@ -17,7 +17,7 @@ const ShopCard = ({ shop, onSelect }: ShopCardProps) => {
                 <h3 className={styles.shopName}>{name}</h3>
                 <p className={styles.shopDescription}>{description}</p>
                 <div className={styles.shopInfo}>
-                    <div className={styles.shopRating}>Rating: {rating}</div>
+                    <div className={styles.shopRating}>Рейтинг: {rating}</div>
                     <Link to={`/shops/${id}/flowers`}>
                         <button className={styles.selectShopBtn} onClick={() => onSelect(id)}>Обрати</button>
                     </Link>
