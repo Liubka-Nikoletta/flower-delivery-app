@@ -4,6 +4,7 @@ import FlowerCard from "../../entities/Flower/ui/FlowerCard";
 import { useParams } from 'react-router-dom';
 import styles from "./FlowersPage.module.scss";
 import {addToCart} from "../../shared/lib/localStorage/cart";
+import {api} from "../../shared/api/api";
 
 const FlowersPage = () => {
     const {shopId} = useParams();
@@ -12,9 +13,8 @@ const FlowersPage = () => {
     useEffect(() => {
         const fetchFlowers = async () => {
             try{
-                const response = await fetch(`http://localhost:5000/api/shops/${shopId}/flowers`);
-                const data = await response.json();
-                setFlowers(data);
+                const response = await api.get(`/shops/${shopId}/flowers`);
+                setFlowers(response.data);
             }catch(error){
                 console.error("Error fetching flowers:", error);
             }

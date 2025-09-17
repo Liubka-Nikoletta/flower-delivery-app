@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {CartItemType} from "../../entities/CartItem/model/types";
 import styles from "./OrderForm.module.scss";
 import {useNavigate} from "react-router-dom";
+import {api} from "../../shared/api/api";
 
 interface OrderFormProps {
     totalPrice: number;
@@ -34,7 +35,7 @@ const OrderForm = ({totalPrice, cartItems, onOrderSuccess}: OrderFormProps) => {
         console.log(cartItems);
 
         try {
-            const response = await fetch("http://localhost:5000/api/orders", {
+            const response = await api.post("/orders", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -48,9 +49,9 @@ const OrderForm = ({totalPrice, cartItems, onOrderSuccess}: OrderFormProps) => {
                 })
             });
 
-            const data = await response.json();
+            const data = await response.data;
 
-            if (response.ok) {
+            if (response.status === 200) {
                 localStorage.removeItem("cart_items");
                 onOrderSuccess();
 
