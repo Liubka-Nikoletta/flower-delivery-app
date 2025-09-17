@@ -13,7 +13,7 @@ const FlowersPage = () => {
     useEffect(() => {
         const fetchFlowers = async () => {
             try{
-                const response = await api.get(`/shops/${shopId}/flowers`);
+                const response = await api.get(`/api/shops/${shopId}/flowers`);
                 setFlowers(response.data);
             }catch(error){
                 console.error("Error fetching flowers:", error);

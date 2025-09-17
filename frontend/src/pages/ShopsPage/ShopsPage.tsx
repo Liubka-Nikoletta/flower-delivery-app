@@ -8,7 +8,7 @@ const ShopPage = () => {
     const [shops, setShops] = useState<Shop[]>([]);
 
     useEffect(() => {
-        api.get<Shop[]>("/shops").then((res) => {setShops(res.data)});
+        api.get<Shop[]>("/api/shops").then((res) => {setShops(res.data)});
     }, []);
 
     const handleSelect = (shopId: number) => {
