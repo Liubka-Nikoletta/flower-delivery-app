@@ -20,6 +20,28 @@ const OrderForm = ({totalPrice, cartItems, onOrderSuccess}: OrderFormProps) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        if (!customerName.trim()) {
+            alert("Введіть ім'я");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(customerEmail)) {
+            alert("Введіть коректний email");
+            return;
+        }
+
+        const phoneRegex = /^\d{10}$/;
+        if (!phoneRegex.test(customerPhone)) {
+            alert("Введіть коректний номер телефону (10 цифр)");
+            return;
+        }
+
+        if (!deliveryAddress.trim()) {
+            alert("Введіть адресу доставки");
+            return;
+        }
+
         const itemsToSend = cartItems
             .filter(item => item.quantity > 0)
             .map(item => ({
@@ -32,37 +54,25 @@ const OrderForm = ({totalPrice, cartItems, onOrderSuccess}: OrderFormProps) => {
             return;
         }
 
-        console.log(cartItems);
-
         try {
             const response = await api.post("/orders", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    customer_name: customerName,
-                    customer_email: customerEmail,
-                    customer_phone: customerPhone,
-                    delivery_address: deliveryAddress,
-                    items: itemsToSend
-                })
+                customer_name: customerName,
+                customer_email: customerEmail,
+                customer_phone: customerPhone,
+                delivery_address: deliveryAddress,
+                items: itemsToSend
             });
-
-            const data = await response.data;
 
             if (response.status === 200) {
                 localStorage.removeItem("cart_items");
                 onOrderSuccess();
-
             } else {
-                alert("Помилка створення замовлення: " + data.error);
+                alert("Помилка створення замовлення: " + response.data.error);
             }
         } catch (error) {
             console.error(error);
             alert("Помилка з’єднання з сервером");
         }
-
     };
 
     return (
