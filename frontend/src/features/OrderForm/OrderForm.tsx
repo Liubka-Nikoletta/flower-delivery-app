@@ -37,7 +37,7 @@ const OrderForm = ({totalPrice, cartItems, onOrderSuccess}: OrderFormProps) => {
         if (itemsToSend.length === 0) { alert("Кошик порожній!"); return; }
 
         try {
-            const response = await api.post("/orders", {
+            const response = await api.post("/api/orders", {
                 customer_name: customerName,
                 customer_email: customerEmail,
                 customer_phone: customerPhone,
