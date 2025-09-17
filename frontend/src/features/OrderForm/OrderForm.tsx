@@ -20,39 +20,21 @@ const OrderForm = ({totalPrice, cartItems, onOrderSuccess}: OrderFormProps) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!customerName.trim()) {
-            alert("Введіть ім'я");
-            return;
-        }
+        if (!customerName.trim()) { alert("Введіть ім'я"); return; }
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(customerEmail)) {
-            alert("Введіть коректний email");
-            return;
-        }
+        if (!emailRegex.test(customerEmail)) { alert("Введіть коректний email"); return; }
 
         const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(customerPhone)) {
-            alert("Введіть коректний номер телефону (10 цифр)");
-            return;
-        }
+        if (!phoneRegex.test(customerPhone)) { alert("Введіть коректний номер телефону (10 цифр)"); return; }
 
-        if (!deliveryAddress.trim()) {
-            alert("Введіть адресу доставки");
-            return;
-        }
+        if (!deliveryAddress.trim()) { alert("Введіть адресу доставки"); return; }
 
         const itemsToSend = cartItems
             .filter(item => item.quantity > 0)
-            .map(item => ({
-                flower_id: item.id,
-                quantity: item.quantity
-            }));
+            .map(item => ({ flower_id: item.id, quantity: item.quantity }));
 
-        if (itemsToSend.length === 0) {
-            alert("Кошик порожній!");
-            return;
-        }
+        if (itemsToSend.length === 0) { alert("Кошик порожній!"); return; }
 
         try {
             const response = await api.post("/orders", {
