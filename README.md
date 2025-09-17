@@ -6,11 +6,7 @@ Web application where users can order flowers delivery.
 
 ## Repository
 
-GitHub:
-
-## Live Demo
-- **Frontend:** [Your deployed frontend URL]
-- **Backend API:** [Your deployed backend URL]
+GitHub: https://github.com/Liubka-Nikoletta/flower-delivery-app.git
 
 ## Tech Stack
 
