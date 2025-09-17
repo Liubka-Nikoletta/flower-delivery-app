@@ -17,22 +17,30 @@ const CartItem = ({ item, onQuantityChange, onRemove }: CartItemProps) => {
                 <h3 className={styles.itemName}>{name}</h3>
                 <p className={styles.itemPrice}>{price}</p>
             </div>
-            <div className={styles.quantityControls}>
-                <button className={styles.quantityBtn}
-                        onClick={() => {
-                            if(quantity < 0 || quantity === 0) {
-                                onRemove(id)
-                            }else{
-                                onQuantityChange(id, quantity - 1)}
-                        }}>
-                    -
-                </button>
-                <span className={styles.quantityInput}>{item.quantity}</span>
-                <button className={styles.quantityBtn}
-                        onClick={() => {onQuantityChange(id, quantity + 1)}}>+
+            <div className={styles.buttons}>
+                <div className={styles.quantityControls}>
+                    <button className={styles.quantityBtn}
+                            onClick={() => {
+                                if (quantity < 0 || quantity === 0) {
+                                    onRemove(id)
+                                } else {
+                                    onQuantityChange(id, quantity - 1)
+                                }
+                            }}>
+                        -
+                    </button>
+                    <span className={styles.quantityInput}>{item.quantity}</span>
+                    <button className={styles.quantityBtn}
+                            onClick={() => {
+                                onQuantityChange(id, quantity + 1)
+                            }}>+
+                    </button>
+                </div>
+                <button className={styles.removeBtn} onClick={() => {
+                    onRemove(id)
+                }}>x
                 </button>
             </div>
-            <button className={styles.removeBtn} onClick={() => {onRemove(id)}}>x</button>
         </div>
     );
 }

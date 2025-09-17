@@ -39,21 +39,26 @@ const CartPage = () => {
             {orderSuccess ? (
                     <div className={styles.message}>
                         Замовлення успішно оформлено!
+                        <a href="/" className={styles.messageSubtitle}>На головну</a>
                     </div>
                 ) : cartItems.length === 0 ? (
-                <p className={styles.message}>Ваш кошик порожній</p>
+                <div className={styles.message}>
+                    <p className={styles.message}>Ваш кошик порожній</p>
+                    <a href="/"  >На головну</a>
+                </div>
             ) : (
                 <>
-                <h1 className={styles.pageTitle}>Кошик покупок</h1>
-                <div className={styles.cartContainer}>
-                    <OrderForm totalPrice={totalPrice} cartItems={cartItems} onOrderSuccess={() => setOrderSuccess(true)}/>
-                    <div className={styles.cartList}>
-                        {cartItems.map((item: CartItemType) => item.quantity > 0 && (
-                            <CartItem key={item.id} item={item} onQuantityChange={handleQuantityChange}
-                                      onRemove={removeCartItem}/>
-                        ))}
+                    <h1 className={styles.pageTitle}>Кошик покупок</h1>
+                    <div className={styles.cartContainer}>
+                        <div className={styles.cartList}>
+                            {cartItems.map((item: CartItemType) => item.quantity > 0 && (
+                                <CartItem key={item.id} item={item} onQuantityChange={handleQuantityChange}
+                                          onRemove={removeCartItem}/>
+                            ))}
+                        </div>
+                        <OrderForm totalPrice={totalPrice} cartItems={cartItems}
+                                   onOrderSuccess={() => setOrderSuccess(true)}/>
                     </div>
-                </div>
                 </>
             )}
         </div>

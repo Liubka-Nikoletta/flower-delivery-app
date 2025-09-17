@@ -29,13 +29,12 @@ const FlowersPage = () => {
        const flower = flowers.find((flower) => flower.id === flowerId);
        if(flower){
            addToCart(flower);
-           alert(`${flower.name} додано в кошик!`);
        }
     }
 
     return(
         <div className={styles.container}>
-            <h1 className="shop-title">Усі квіти</h1>
+            <h1 className={styles.shopTitle}>Усі квіти</h1>
             <div className={styles.flowerGrid}>
                 {flowers.map((flower: Flower) => (<FlowerCard key={flower.id} flower={flower} onSelect={handleClick}/>))}
             </div>

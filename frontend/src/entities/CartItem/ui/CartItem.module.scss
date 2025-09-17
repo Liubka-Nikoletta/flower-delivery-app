@@ -1,8 +1,21 @@
 .cartItem {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 1.5rem 0;
   border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 .cartItem:last-child {
@@ -17,20 +30,29 @@
   background-position: center;
   position: relative;
 
-  &::after{
+  &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: linear-gradient(135deg, rgba(90,108,125,0.1) 0%, rgba(90,108,125,0.05) 100%);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 200px;
+    margin: 15px 0 1rem 0;
   }
 }
 
 .itemDetails {
   flex: 1;
   margin-left: 20px;
+  min-width: 0;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .itemName {
@@ -38,6 +60,8 @@
   font-weight: 600;
   color: #2d3748;
   margin-bottom: 0.5rem;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .itemPrice {
@@ -50,6 +74,19 @@
   display: flex;
   align-items: center;
   margin: 0 1.5rem;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.buttons{
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
 }
 
 .quantityBtn {
@@ -80,19 +117,32 @@
   margin: 0 10px;
   font-size: 1rem;
   font-weight: 600;
+
+  @media (max-width: 480px) {
+    width: 40px;
+    font-size: 0.8rem;
+  }
 }
 
 .removeBtn {
-  background: #fed7d7;
-  color: #e53e3e;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  color: #828898;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+
+  z-index: 2;
+
+  &:hover {
+    background: #6c7788;
+    color: white;
+  }
 }
 
-.removeBtn:hover {
-  background: #fbb6ce;
-}
