@@ -8,6 +8,10 @@ Web application where users can order flowers delivery.
 
 GitHub: https://github.com/Liubka-Nikoletta/flower-delivery-app.git
 
+## Public URL
+
+Frontend & backend hosted on Render: https://flower-delivery-app-w67d.onrender.com
+
 ## Tech Stack
 
 ### Frontend
